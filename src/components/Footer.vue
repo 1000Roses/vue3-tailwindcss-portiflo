@@ -55,7 +55,7 @@ export default {
                 })
             },
             async sendEmail() {
-                var url = "http://127.0.0.1:8000/user/send_email/"
+                var url = process.env.VUE_APP_SEND_MAIL_API
                 var response = await fetch(url,{
                     method : "POST",
                     headers: {
