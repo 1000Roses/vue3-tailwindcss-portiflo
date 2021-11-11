@@ -6,7 +6,7 @@
                 
                 <div class="md:col-span-4 md:ml-4 mobile:p-2 md:hidden">
                     <p class="p-3 shadow">
-                        introduce Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloribus consequatur tempore, similique quasi quos? Alias natus optio iure nisi, rerum nihil, eius atque debitis itaque doloribus provident excepturi similique voluptatum in eaque aut reprehenderit a tempora autem, obcaecati et molestias? Asperiores quis nulla molestiae quidem non reprehenderit perspiciatis porro hic illo sunt similique esse dolore cum nesciunt mollitia aspernatur, voluptatem, enim, eveniet deserunt. Delectus laborum possimus et sapiente dolore?
+                       {{ introduce }}
                     </p>
                 </div>
 
@@ -22,7 +22,7 @@
                 
                 <div class="md:col-span-4 md:ml-4 mobile:p-2 md:block hidden">
                     <p class="p-3 shadow">
-                        introduce Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloribus consequatur tempore, similique quasi quos? Alias natus optio iure nisi, rerum nihil, eius atque debitis itaque doloribus provident excepturi similique voluptatum in eaque aut reprehenderit a tempora autem, obcaecati et molestias? Asperiores quis nulla molestiae quidem non reprehenderit perspiciatis porro hic illo sunt similique esse dolore cum nesciunt mollitia aspernatur, voluptatem, enim, eveniet deserunt. Delectus laborum possimus et sapiente dolore?
+                        {{ introduce }}
                     </p>
                 </div>
             </div>
@@ -36,6 +36,7 @@
 export default {
     data(){
         return {
+            introduce : " The author is hiding in soul of it-er. I like writing some sentences about myself. The things i have met in life, fogot some english vocabs, sr the page will be updated next time.",
             loves: []
         }
     },
