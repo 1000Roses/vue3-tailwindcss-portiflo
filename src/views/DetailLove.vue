@@ -3,12 +3,17 @@
         <br> <br> <br>
         <div class="md:w-8/12 w-full mx-auto shadow md:p-7 p-3">
                 
-                    <p class="text-3xl text-center font-semibold" > {{ briefLove.title }} </p>
+                    <p class="text-4xl text-center font-semibold bg-yellow-600 p-3" > {{ briefLove.title }} </p>
                     <br> <br> <br>
+                    <code>Chỉnh sửa lần cuối ngày: {{ briefLove.last_day_edited }}</code>
                     <div v-for="section in briefLove.post_section" :key="section">
                         <p class="md:text-2xl text-lg font-semibold"> {{ section.name }} </p>
                         <div v-for="paragraph in section.post_paragraph" :key="paragraph" class="ml-2 mt-2">
-                            <p>{{ paragraph }}</p>
+                            <a v-if="paragraph.includes('<a>')" :href="paragraph.replace(/<a>/g, '').replace('</a>', '').trim()">Link không bí mật: <span class="font-semibold"> {{ paragraph.replace(/<a>/g, "").replace('</a>', "").trim() }} </span> </a>
+                            <div v-else-if="paragraph.includes('<img>')" class="w-full h-auto">
+                                <img class="object-cover w-full" :src="paragraph.replace(/<img>/g, '').replace('</img>', '').trim()" alt="">
+                            </div>
+                            <p v-else>{{ paragraph }}</p>
                         </div>
                         <div class="mt-3"></div>
                     </div>
@@ -28,7 +33,8 @@ export default {
     },
     methods : {
         async getDetailLove(){
-            var url = 'http://127.0.0.1:8000/post/' + this.id
+            var url = process.env.VUE_APP_GET_LOVES_API + this.id
+            console.log(url)
             console.log(url)
             var response = await fetch(url, {
                 method: 'GET'
